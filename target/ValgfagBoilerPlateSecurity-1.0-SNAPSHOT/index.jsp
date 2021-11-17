@@ -16,6 +16,6 @@
 </head>
 <body>
     <%@ include file="includes/navbar.jsp" %>
-    <h1>Secure login and file upload</h1>
+    <h1>A site created for secure login and picture sharing</h1>
 </body>
 </html>

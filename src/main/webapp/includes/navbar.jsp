@@ -23,7 +23,7 @@
                     <form name="viewpage" action="ServletController" method="post">
                         <input type="hidden" name="cmd" value="view">
                         <input type="hidden" name="page" value="forumpage">
-                        <input type="submit" class="btn btn-light" value="Pics">
+                        <input type="submit" class="btn btn-light" value="Feed">
                     </form>
                 </li>
                 <c:if test="${user != null}">
