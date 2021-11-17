@@ -1,0 +1,8 @@
+Service\LoginService.class
+Service\ILoginService.class
+Dependencies\IMysqlConnection.class
+Models\User.class
+Persistence\DAO\LoginDao.class
+Controllers\SomeController.class
+Dependencies\MysqlConnection.class
+Persistence\LoginDaoImpl.class
