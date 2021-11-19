@@ -6,8 +6,8 @@ import java.util.Properties;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class User {
-    private final String username;
-    private final String email;
+    private String username;
+    private String email;
     private String password;
     private String role;
     private static String pepper;
@@ -49,23 +49,13 @@ public class User {
         this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getPepper() {
+    public static String getPepper() {
         return pepper;
     }
 
-    public void setPepper(String pepper) {
-        this.pepper = pepper;
+    public static void setPepper(String pepper) {
+        User.pepper = pepper;
     }
-
-   
 
 
     public boolean checkPassword(String plainPass, String storedPass) {
