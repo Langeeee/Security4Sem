@@ -6,11 +6,11 @@ import java.util.Properties;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class User {
-    private String username;
-    private String email;
+    private final String username;
+    private final String email;
     private String password;
     private String role;
-    private String pepper;
+    private static String pepper;
     
     
     private static String chosePepper() throws Exception {
@@ -49,13 +49,23 @@ public class User {
         this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
     }
 
-    public static String getPepper() {
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getPepper() {
         return pepper;
     }
 
-    public static void setPepper(String pepper) {
-        User.pepper = pepper;
+    public void setPepper(String pepper) {
+        this.pepper = pepper;
     }
+
+   
 
 
     public boolean checkPassword(String plainPass, String storedPass) {
