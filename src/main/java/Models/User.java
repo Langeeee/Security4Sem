@@ -21,7 +21,7 @@ public class User {
         }
         catch (IOException e) {
         }
-        throw new Exception("Could not get pepper");
+        throw new Exception("Pepper not found");
     }
     
 
@@ -45,25 +45,11 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
-    }
-
-    public static String getPepper() {
-        return pepper;
-    }
-
-    public static void setPepper(String pepper) {
-        User.pepper = pepper;
-    }
-
-
     public boolean checkPassword(String plainPass, String storedPass) {
         return BCrypt.checkpw(pepper + plainPass, storedPass);
     }
-    
-     public enum Role {
-    Employee,
-    Admin
-  }
+
+     public void setPassword(String password) {
+        this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
+    }
 }
