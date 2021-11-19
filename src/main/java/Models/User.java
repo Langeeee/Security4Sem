@@ -45,10 +45,7 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
-    }
-
+    
     public static String getPepper() {
         return pepper;
     }
@@ -62,8 +59,9 @@ public class User {
         return BCrypt.checkpw(pepper + plainPass, storedPass);
     }
     
-     public enum Role {
-    Employee,
-    Admin
-  }
+   
+     
+     public void setPassword(String password) {
+        this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
+    }
 }
