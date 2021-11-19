@@ -9,9 +9,9 @@ public class LoginDaoImpl implements LoginDao {
 
     private IMysqlConnection imc;
 
-    public LoginDaoImpl() {
-        this.imc = new MysqlConnection(); // loose coupling
-    }
+//    public LoginDaoImpl() {
+//        this.imc = new MysqlConnection(); // loose coupling
+//    }
 
     @Override
     public boolean verifyCredentials(User user) {
