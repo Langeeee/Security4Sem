@@ -9,8 +9,8 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private final Enum<Role> role;
-    private static String pepper;
+    private String role;
+    private String pepper;
     
     
     private static String chosePepper() throws Exception {
@@ -25,9 +25,10 @@ public class User {
     }
     
 
-    public User(String username, String password, Enum role) throws Exception {
+    public User(String username, String password, String email, String role) throws Exception {
         pepper = chosePepper();
         this.username = username;
+        this.email = email;
         this.password = password;
         this.role = role;
     }
