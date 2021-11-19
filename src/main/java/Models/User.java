@@ -9,7 +9,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private boolean role;
+    private final Enum<Role> role;
     private static String pepper;
     
     
@@ -25,10 +25,11 @@ public class User {
     }
     
 
-    public User(String username, String password) throws Exception {
+    public User(String username, String password, Enum role) throws Exception {
         pepper = chosePepper();
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -43,19 +44,25 @@ public class User {
         return password;
     }
 
-    public boolean isRole() {
-        return role;
-    }
-
     public void setPassword(String password) {
         this.password = BCrypt.hashpw(pepper + password, BCrypt.gensalt(16));
     }
 
-    public void setRole(boolean role) {
-        this.role = role;
+    public static String getPepper() {
+        return pepper;
     }
+
+    public static void setPepper(String pepper) {
+        User.pepper = pepper;
+    }
+
 
     public boolean checkPassword(String plainPass, String storedPass) {
         return BCrypt.checkpw(pepper + plainPass, storedPass);
     }
+    
+     public enum Role {
+    Employee,
+    Admin
+  }
 }
